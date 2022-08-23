@@ -1,0 +1,45 @@
+<main>
+  <section>
+    <h1>Codenation</h1>
+
+    <p>Júlio Cesar</p>
+  </section>
+
+  <section>
+    <h2>Dados</h2>
+
+    <p>
+      <strong>Mensagem cifrada: </strong>{{ generatedData?.cifrado }}<br />
+      <strong>Mensagem decifrada: </strong>{{ generatedData?.decifrado }}<br />
+      <strong>Número de casas: </strong>{{ generatedData?.numero_casas }}<br />
+      <strong>Resumo criptográfico: </strong>{{ generatedData?.resumo_criptografico }}<br />
+      <strong>Token: </strong>Escondido.
+    </p>
+  </section>
+
+  <section>
+    <h5>Escolha o arquivo de resposta.</h5>
+
+    <form>
+      <input type="file" (change)="changeAnswerFile($event?.target?.files)" />
+    </form>
+  </section>
+
+  <section>
+    <h6>Ações</h6>
+
+    <button
+      type="button"
+      [disabled]="generatedData !== null"
+      (click)="clickGetGeneratedData()">
+      Obter novos dados
+    </button>
+
+    <button
+      type="button"
+      [disabled]="answerFile === null"
+      (click)="clickSendAnswerFile()">
+      Enviar resposta
+    </button>
+  </section>
+</main>
